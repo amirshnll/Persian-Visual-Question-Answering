@@ -18,8 +18,7 @@ def train(model, optimizer, criterion, dataloader, device, global_step):
         'accuracy': []
     }
 
-    for j, (images, features, questions, answers) in enumerate(t):
-
+    for images, features, questions, answers in t:
         features = features.to(device=device)
         questions = questions.to(device=device)
         answers = answers.to(device=device)

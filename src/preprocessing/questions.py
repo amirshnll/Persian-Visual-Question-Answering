@@ -120,9 +120,7 @@ def get_tokens_length_frequency(data):
             temp[ql] += 1
 
     temp = sorted(temp.items(), key=lambda x: x[0])
-    sorted_sentence_length_frequency = {x[0]: x[1] for x in temp}
-
-    return sorted_sentence_length_frequency
+    return {x[0]: x[1] for x in temp}
 
 
 def filter_by_tokens_length(data, tokens_length):
@@ -147,13 +145,7 @@ def get_tokens_frequency(data):
 
 
 def get_useful_tokens(tokens_frequency, min_occ):
-    k_frequent_tokens = {}
-
-    for k, v in tokens_frequency.items():
-        if v >= min_occ:
-            k_frequent_tokens[k] = v
-
-    return k_frequent_tokens
+    return {k: v for k, v in tokens_frequency.items() if v >= min_occ}
 
 
 def get_tokens_dictionary(useful_tokens, save_path, idx_to_token_save_name, token_to_idx_save_name):

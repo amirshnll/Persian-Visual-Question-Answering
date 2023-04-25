@@ -20,8 +20,7 @@ class SoftCrossEntropyLoss:
     def __call__(self, y_hat, y):
         p = F.log_softmax(input=y_hat, dim=1)
         w_labels = self.weights * y
-        loss = - (w_labels * p).sum() / w_labels.sum()
-        return loss
+        return - (w_labels * p).sum() / w_labels.sum()
 
 
 def get_class_weights(answers_frequency, idx_to_answer):

@@ -28,13 +28,7 @@ def filter_by_k_frequent_answers(data, answers):
 
 def get_answers_dictionary(answers, save_path, idx_to_answer_save_name, answer_to_idx_save_name):
 
-    answer_to_idx = {}
-
-    i = 0
-    for k, v in answers.items():
-        answer_to_idx[k] = i
-        i += 1
-
+    answer_to_idx = {k: i for i, (k, v) in enumerate(answers.items())}
     idx_to_answer = {v: k for k, v in answer_to_idx.items()}
 
     save_file(data=idx_to_answer, path=save_path, file_name=idx_to_answer_save_name, file_type='pickle')

@@ -20,7 +20,7 @@ def check_VQAv1_dataset(dataset_paths):
 
             if not os.path.exists(os.path.join(path, file_name)):
                 print(f'path not found: {os.path.join(path, file_name)}')
-                print(f'searching for download file...')
+                print('searching for download file...')
 
                 if not os.path.exists(os.path.join(path, zip_name)):
                     print(f'download file not found: {os.path.join(path, zip_name)}')
@@ -185,10 +185,4 @@ def get_data_loader(data, token_to_idx, answer_to_idx, tokens_length, batch_size
         trans=trans
     )
 
-    dataloader = DataLoader(
-        dataset=dataset,
-        batch_size=batch_size,
-        shuffle=shuffle
-    )
-
-    return dataloader
+    return DataLoader(dataset=dataset, batch_size=batch_size, shuffle=shuffle)

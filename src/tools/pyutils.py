@@ -28,7 +28,7 @@ def save_file(data, path, file_name, file_type):
             pk.dump(obj=data, file=fp, protocol=pk.HIGHEST_PROTOCOL)
 
 
-def load_file(path):
+def load_file(path):  # sourcery skip: raise-specific-error
     extension = path.split(sep='.')[-1]
 
     if extension == 'json':

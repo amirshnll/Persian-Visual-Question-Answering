@@ -27,10 +27,7 @@ def extract_features(data, trans, device, save_path):
 
         save_name = f"{ip.split(sep='/')[-1].split(sep='.')[0]}.pickle"
 
-        if os.path.exists(path=os.path.join(save_path, save_name)):
-            # features = load_file(path=os.path.join(save_path, save_name))
-            fp = os.path.join(save_path, save_name)
-        else:
+        if not os.path.exists(path=os.path.join(save_path, save_name)):
             img = cv2.imread(filename=ip)
             img = cv2.cvtColor(src=img, code=cv2.COLOR_BGR2RGB)
             img = trans(img).unsqueeze(0)
@@ -41,8 +38,8 @@ def extract_features(data, trans, device, save_path):
 
             save_file(data=features, path=save_path, file_name=save_name, file_type='pickle')
 
-            fp = os.path.join(save_path, save_name)
-
+        # features = load_file(path=os.path.join(save_path, save_name))
+        fp = os.path.join(save_path, save_name)
         d['feature_path'] = fp
 
     del FE

@@ -4,17 +4,15 @@ from configurations.datasets.VQAv1 import get_VQAv1_configs
 
 def get_configs():
 
-    cfgs = {}
-
-    # ---------------- General Configurations ----------------
-    cfgs['session'] = 'final'
-    cfgs['seed'] = 42
-    cfgs['root_path'] = os.getcwd()
-    cfgs['epochs'] = 50
-    cfgs['batch_size'] = 750
-    cfgs['lr'] = 1e-4
-    # ---------------- Original Dataset Configurations ----------------
-    cfgs['datasets'] = {}
+    cfgs = {
+        'session': 'final',
+        'seed': 42,
+        'root_path': os.getcwd(),
+        'epochs': 50,
+        'batch_size': 750,
+        'lr': 0.0001,
+        'datasets': {},
+    }
 
     ### VQAv1:
     cfgs['datasets']['VQAv1'] = get_VQAv1_configs(root_path=os.path.join(cfgs['root_path'], 'datasets'))

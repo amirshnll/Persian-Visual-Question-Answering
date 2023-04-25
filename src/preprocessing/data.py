@@ -7,8 +7,7 @@ from src.tools.pyutils import save_file, load_file
 
 def translate(text, source='en', target='fa'):
     translator = GoogleTranslator(source=source, target=target)
-    translated = translator.translate(text=text)
-    return translated
+    return translator.translate(text=text)
 
 
 def translate_data(data, save_path, dictionary_name):

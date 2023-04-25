@@ -17,8 +17,7 @@ def val(model, criterion, dataloader, device, global_step):
         'accuracy': []
     }
 
-    for j, (image, features, questions, answers) in enumerate(t):
-
+    for image, features, questions, answers in t:
         features = features.to(device=device)
         questions = questions.to(device=device)
         answers = answers.to(device=device)
